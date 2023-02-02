@@ -1,33 +1,63 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
+import pic from './assets/working.png'
+
+function getActiveClassName (activeArticle, currentArticle) {
+    if (activeArticle ===  currentArticle) {
+        return 'show-article'
+    } else {
+        return 'hide-article'
+    }
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [activeArticle, setActiveArticle] = useState('First Article')
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+
+    return (
+        <>
+            <article className={`active ${getActiveClassName(activeArticle, 'First Article')}`} >
+                <h1>About Me</h1>
+                <p>
+                    What I have done so far...
+                </p>
+                <img className='pic' src={pic} alt=''/>
+            </article>
+
+            <article className={`active ${getActiveClassName(activeArticle, '2nd Article')}`} >
+                <h1>Idea</h1>
+                <p>
+                    My idea for the personal project... 
+                </p>
+                <p>
+                    The motivation behind the project...
+                </p>
+                <img className='pic' src={pic} alt=''/>
+            </article>
+
+            <article className={`active ${getActiveClassName(activeArticle, '2nd Article')}`} >
+                <h1>Idea</h1>
+                <p>
+                    The design style...
+                </p>
+                <p>
+                    The motivation behind the choice...
+                </p>
+                <img className='pic' src={pic} alt=''/>
+            </article>
+
+        <div className='article'>
+            <button onClick={() => {
+                setActiveArticle((a) => {
+                    if (a === 'First Article') {
+                        return '2nd Article'
+                    } else {
+                        return 'First Article'
+                    }
+                })
+            }}>Switch Article</button>
+        </div>
+    </>
   )
 }
 
