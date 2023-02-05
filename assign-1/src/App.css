@@ -6,6 +6,8 @@
     --dark-color: #001107;
     --light-color: #FFFFFF;
 
+    --base-indent: 20px;
+
     font-size: 16px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -22,13 +24,13 @@ html {
 
 body {
     height: 100%;
-    background-color: var(--light-color);
+    background-color: var(--main-color);
     display: flex;
     flex-direction: column;
 }
 
 header {
-    padding: 1.5em;
+    padding: 2em 1em;
     background-color: var(--secondary-color);
     color: var(--light-color);
 }
@@ -54,16 +56,23 @@ p {
 
 button {
     font-size: 1.44rem;
-    padding: 20px 40px;
+    padding: var(--base-indent) calc(var(--base-indent) * 2);
     border: none;
     background-color: var(--accent-color);
-    border-radius: 20px;
-    margin-bottom: 20px;
+    border-radius: var(--base-indent);
+    margin-bottom: 2em;
 }
 
 .article {
     max-width: 600px;
     margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-color);
+    border-radius: var(--base-indent);
+    padding: 3em;
 }
 
 .hide-article {
@@ -74,5 +83,5 @@ button {
     height: 100%;
     width: 100%;
     max-width: 300px;
-    border-radius: 20px;
+    border-radius: var(--base-indent);
 }
