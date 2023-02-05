@@ -1,18 +1,20 @@
 import { useState } from 'react'
 import './App.css'
-import pic from './assets/working.png'
+import picFirst from './assets/working.png'
+import picSecond from './assets/books.png'
+import picThird from './assets/computer.png'
 
-function getActiveClassName (activeArticle, currentArticle) {
-    if (activeArticle ===  currentArticle) {
-        return 'show-article'
+
+function getActiveClassName()  {
+    if (activeArticle === currentArticle) {
+        return 'show'
     } else {
-        return 'hide-article'
+        return 'hide'
     }
 }
 
 function App() {
-    const [activeArticle, setActiveArticle] = useState('First Article')
-
+    const [activeArticle, setActiveArticle] = useState('first');
 
     return (
         <>
@@ -20,15 +22,20 @@ function App() {
                 <h1>One | Recreate and Improve</h1>
             </header>
             <main>
-                <article className={`article ${getActiveClassName(activeArticle, 'First Article')}`} >
+                <article className={`article`}>
                     <h2>About Me</h2>
                     <p>
                         What I have done so far is to build websites with HTML, CSS, Vanilla JS, JQuery and now React. 
                     </p>
-                    <img className='pic' src={pic} alt=''/>
+                    <p>
+                        The projects I have done so far are a portfolio filled with small projects from the 
+                        previous course. For example a game of hanged man and a wedsite connected to an API 
+                        that works as a randomizer.
+                    </p>
+                    <img className='pic' src={picFirst} alt=''/>
                 </article>
 
-                <article className={`article ${getActiveClassName(activeArticle, '2nd Article')}`} >
+                <article className={`article`}>
                     <h2>Idea</h2>
                     <p>
                         My idea for the personal project is a random number generator, 
@@ -40,10 +47,10 @@ function App() {
                         done a random spell generator for a past assignment and thought bulding a 
                         mobile first site could benefit players of the game. 
                     </p>
-                    <img className='pic' src={pic} alt=''/>
+                    <img className='pic' src={picSecond} alt=''/>
                 </article>
 
-                <article className={`aerticle ${getActiveClassName(activeArticle, '3nd Article')}`} >
+                <article className={`article`}>
                     <h2>Design</h2>
                     <p>
                         The design style for the project should include colors taken from the franchise 
@@ -54,21 +61,13 @@ function App() {
                         The motivation behind the choice is the simplicity of the design and the 
                         use of of rounded courner/borders which I feel create a softness around the design. 
                     </p>
-                    <img className='pic' src={pic} alt=''/>
+                    <img className='pic' src={picThird} alt=''/>
                 </article>
 
-                <button onClick={() => {
-                    setActiveArticle((a) => {
-                        if (a === 'First Article') {
-                            return '2nd Article'
-                        } else {
-                            return 'First Article'
-                        }
-                    })
-                }}>Switch Article</button>
+                <button>Switch Article</button>
             </main>
         </>
     )
 }
 
-export default App
+export default App;
