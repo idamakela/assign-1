@@ -4,17 +4,7 @@ import picFirst from './assets/working.png'
 import picSecond from './assets/books.png'
 import picThird from './assets/computer.png'
 
-
-function getActiveClassName()  {
-    if (activeArticle === currentArticle) {
-        return 'show'
-    } else {
-        return 'hide'
-    }
-}
-
 function App() {
-    const [activeArticle, setActiveArticle] = useState('first');
 
     return (
         <>
