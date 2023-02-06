@@ -13,7 +13,7 @@ const Article = ({ title, text, pic, picAlt, classes }) => {
             <p dangerouslySetInnerHTML={sanatizedText} />
             <img src={pic} alt={picAlt} />
         </article>
-    )
+    );
 };
 
 const AppendContent = ({ articles, page, setPage }) => {
@@ -28,15 +28,17 @@ const AppendContent = ({ articles, page, setPage }) => {
                     {visibleArticle.map(({ title, text, pic, picAlt, classes }) => (
                         <Article key={title} title={title} text={text} pic={pic} picAlt={picAlt} classes={classes} />
                     ))}
-
                 </div>
+
                 <div className="container button">
                 {page > 1 ? 
                     <button onClick={() => setPage(page - 1)}>&#8249; <span>Previous</span></button>
                     : 
                     <button disabled>&#8249; <span>Previous</span></button>
                 }
+
                 <h2 className='pageIndicator'>{page}</h2>
+
                 {articles.length > endIndex ? 
                     <button onClick={() => setPage(page + 1)}><span>Next</span> &#8250;</button>
                     : 
@@ -49,7 +51,7 @@ const AppendContent = ({ articles, page, setPage }) => {
 }
 
 function activeArticle() {
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(1);
 
     const articles = [
         {
@@ -96,7 +98,7 @@ function activeArticle() {
                 <h2>&copy; Ida Mäkelä</h2>
             </footer>
         </>
-    )
+    );
 }
 
 export default activeArticle;
