@@ -2,6 +2,7 @@
     --main-color: #FFF0E0;
     --secondary-color: #004921;
     --accent-color: #F48722;
+    --light-accent: #dd7a1d8f;
 
     --dark-color: #001107;
     --light-color: #FFFFFF;
@@ -29,16 +30,11 @@ body {
     height: 100%;
 }
 
-header {
+header,
+footer {
     background-color: var(--secondary-color);
     color: var(--light-color);
     padding: 2em 1em;
-}
-
-main {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
 }
 
 h1 {
@@ -47,7 +43,6 @@ h1 {
 
 h2 {
     font-size: 2.074rem;
-    margin-bottom: 1em;
 }
 
 p {
@@ -55,19 +50,22 @@ p {
     margin-bottom: 1em;
 }
 
-button {
-    background-color: var(--accent-color);
-    border-radius: var(--base-indent);
-    border: none;
-    cursor: pointer;
-    font-size: 1.44rem;
-    margin-bottom: 2em;
-    padding: var(--base-indent) calc(var(--base-indent) * 2);
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
-button:hover {
-    background-color: var(--secondary-color);
-    color: var(--main-color);
+.container.button {
+    align-items: center;
+    align-self: stretch;
+    background-color: var(--light-color);
+    border-radius: var(--base-indent);
+    flex-direction: row;
+    justify-content: center;
+    margin: 2em;
+    max-width: 600px;
+    padding: 1.5em;
 }
 
 .article {
@@ -82,14 +80,63 @@ button:hover {
     padding: 3em;
 }
 
-.hide {
-    display: none;
+article h2 {
+    margin-bottom: 1em;
 }
-  
-.pic {
+
+article a {
+    color: var(--dark-color);
+}
+ 
+article img {
     border-radius: var(--base-indent);
     height: 100%;
     margin-top: 1em;
     max-width: 300px;
     width: 100%;
+}
+
+.pageIndicator {
+    font-size: 1.44rem;
+    margin: 0.5em;
+
+}
+
+button {
+    background-color: var(--accent-color);
+    border-radius: var(--base-indent);
+    border: none;
+    cursor: pointer;
+    font-size: 1.44rem;
+    padding: 0.5em 1em;
+    margin: 0.5em;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+}
+
+button:disabled {
+    background-color: var(--light-accent);
+    color: var(--main-color);
+}
+
+button span {
+    display: none;
+}
+
+@media screen and (min-width: 555px) {
+    .container.button {
+        align-self: center;
+        min-width: 600px;
+    }
+    
+    button {
+        min-width: 180px;
+    }
+
+    button span {
+        display: inline-block;
+    }
 }
